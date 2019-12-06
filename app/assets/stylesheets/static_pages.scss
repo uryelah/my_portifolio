@@ -43,6 +43,7 @@ main {
     text-align: center;
     border-radius: 25px;
     padding: 20px;
+    padding-right: 35px;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -58,7 +59,8 @@ main article {
     right: 5px;
     width: 15px;
     height: 140vh;
-    background-color: #e2e2e2;
+    background-color: #e2e2e25c;
+    border: 2px solid #e2e2e2ac;
     border-radius: 5px;
     padding: 2px 0;
 

@@ -8,6 +8,7 @@ window.onload = () => {
 
     let CHANGE = false;
     let CLICK = {};
+    let FADE = {};
     let rounds = 0;
     let random = 0;
 
@@ -82,21 +83,47 @@ window.onload = () => {
                 row.forEach((r, j) => {
                     if (i % 2 === 0) {
                         if (j % 2 === 0) {
-                            ctx.fillStyle = '#ACECD5'
-                            ctx.strokeRect(cell * i, cell * j, cell, cell)
+                            
+                            if (FADE[`|${i},${j}|`]) {
+                                ctx.fillStyle = '#ACECD555'
+                                ctx.fillRect(cell * i, cell * j, cell, cell)
+                                ctx.fillStyle = '#ACECD5'
+                            } else {
+                                ctx.fillStyle = '#ACECD5'
+                            }
                         } else {
-                            ctx.fillStyle = '#c9b3ff'
-                            ctx.strokeRect(cell * i, cell * j, cell, cell)
+                            
+                            if (FADE[`|${i},${j}|`]) {
+                                ctx.fillStyle = '#c9b3ff55'
+                                ctx.fillRect(cell * i, cell * j, cell, cell)
+                                ctx.fillStyle = '#c9b3ff'
+                            } else {
+                                ctx.fillStyle = '#c9b3ff'
+                            }
                         }
                     } else {
                         if (j % 2 === 0) {
-                            ctx.fillStyle = '#FFF9AA'
-                            ctx.strokeRect(cell * i, cell * j, cell, cell)
+                            if (FADE[`|${i},${j}|`]) {     
+                                ctx.fillStyle = '#FFF9AA55'
+                                ctx.fillRect(cell * i, cell * j, cell, cell)
+                                ctx.fillStyle = '#FFF9AA'
+                            } else {
+                                ctx.fillStyle = '#FFF9AA'
+                            }
                         } else {
-                            ctx.fillStyle = '#FFB9B3'
-                            ctx.strokeRect(cell * i, cell * j, cell, cell)
+                            
+                            if (FADE[`|${i},${j}|`]) {
+                                ctx.fillStyle = '#FFB9B355'
+                                ctx.fillRect(cell * i, cell * j, cell, cell)
+                                ctx.fillStyle = '#FFB9B3'
+                            } else {
+                                ctx.fillStyle = '#FFB9B3'
+                            }
                         }
                     }
+                    
+                    ctx.strokeRect(cell * i, cell * j, cell, cell)
+
                     // Check if was clicked and if so fill cell
                     if ((CHANGE[0] > (cell * 0.98 * i) && CHANGE[0] < (cell * 0.98 * (i+1))) && 
                         (CHANGE[1] > (cell * 1.08 * j) && CHANGE[1] < (cell * 1.08 * (j+1)))) {
@@ -178,6 +205,7 @@ window.onload = () => {
         let newLiveCells = {};
         let inner = 0
         let newClickedCells = {}
+        FADE = {}
 
         for (let key in clickedCells) {
             let cell = clickedCells[key];
@@ -215,7 +243,7 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]+1},${cell[1]}|`]) {
+                    if (!newLiveCells[`|${cell[0]+1},${cell[1]}|`] && cell[0]+1 < grid.length && cell[1] < row.length && cell[0]+1 > -1 && cell[1] > -1) {
                         newLiveCells[`|${cell[0]+1},${cell[1]}|`] = [cell[0]+1, cell[1]]
                     }
                 }
@@ -250,7 +278,7 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]+1},${cell[1]+1}|`]) {
+                    if (!newLiveCells[`|${cell[0]+1},${cell[1]+1}|`] && cell[0]+1 < grid.length && cell[1]+1 < row.length && cell[0]+1 > -1 && cell[1]+1 > -1) {
                         newLiveCells[`|${cell[0]+1},${cell[1]+1}|`] = [cell[0]+1, cell[1]+1]
                     }
                 }
@@ -285,7 +313,7 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]},${cell[1]+1}|`]) {
+                    if (!newLiveCells[`|${cell[0]},${cell[1]+1}|`] && cell[0] < grid.length && cell[1]+1 < row.length && cell[0] > -1 && cell[1]+1 > -1) {
                         newLiveCells[`|${cell[0]},${cell[1]+1}|`] = [cell[0], cell[1]+1]
                     }
                 }
@@ -320,7 +348,7 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]-1},${cell[1]+1}|`]) {
+                    if (!newLiveCells[`|${cell[0]-1},${cell[1]+1}|`] && cell[0]-1 < grid.length && cell[1]+1 < row.length && cell[0]-1 > -1 && cell[1]+1 > -1) {
                         newLiveCells[`|${cell[0]-1},${cell[1]+1}|`] = [cell[0]-1, cell[1]+1]
                     }
                 }
@@ -355,7 +383,7 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]-1},${cell[1]}|`]) {
+                    if (!newLiveCells[`|${cell[0]-1},${cell[1]}|`] && cell[0]-1 < grid.length && cell[1] < row.length && cell[0]-1 > -1 && cell[1] > -1) {
                         newLiveCells[`|${cell[0]-1},${cell[1]}|`] = [cell[0]-1, cell[1]]
                     }
                 }
@@ -390,7 +418,7 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]-1},${cell[1]-1}|`]) {
+                    if (!newLiveCells[`|${cell[0]-1},${cell[1]-1}|`] && cell[0]-1 < grid.length && cell[1]-1 < row.length && cell[0]-1 > -1 && cell[1]-1 > -1) {
                         newLiveCells[`|${cell[0]-1},${cell[1]-1}|`] = [cell[0]-1, cell[1]-1]
                     }
                 }
@@ -425,7 +453,7 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]},${cell[1]-1}|`]) {
+                    if (!newLiveCells[`|${cell[0]},${cell[1]-1}|`] && cell[0] < grid.length && cell[1]-1 < row.length && cell[0] > -1 && cell[1]-1 > -1) {
                         newLiveCells[`|${cell[0]},${cell[1]-1}|`] = [cell[0], cell[1]-1]
                     }
                 }
@@ -460,345 +488,26 @@ window.onload = () => {
                 }
 
                 if (inner === 3) {
-                    if (!newLiveCells[`|${cell[0]+1},${cell[1]-1}|`]) {
+                    if (!newLiveCells[`|${cell[0]+1},${cell[1]-1}|`] && cell[0]+1 < grid.length && cell[1]-1 < row.length && cell[0]+1 > -1 && cell[1]-1 > -1) {
                         newLiveCells[`|${cell[0]+1},${cell[1]-1}|`] = [cell[0]+1, cell[1]-1]
                     }
                 }
             }
 
-            //console.log(neightbors)
-
             if (neightbors >= 2 && neightbors < 4) {
                 newClickedCells[key] = cell;
+            } else {
+                FADE[key] = cell;
             }
         }
 
         clickedCells = newClickedCells;
-/*
-        clickedCells = clickedCells.filter((cell,i) => {
-            //let strNewBorn = "|" + newLiveCells.join("|") + "|"
-            neightbors = 0;
-            if (strCell.includes(`|${cell[0]},${cell[1]}|`)) {
-                // Right
-                if (strCell.includes(`|${cell[0]+1},${cell[1]}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
 
-                    if (inner === 3) {
-                        //console.log("#right",inner)
-                        if (!newLiveCells[`|${cell[0]+1},${cell[1]}|`]) {
-                            //newLiveCells.push([cell[0]+1, cell[1]])
-                            newLiveCells[`|${cell[0]+1},${cell[1]}|`] = [cell[0]+1,cell[1]]
-                        }
-                    }
-                    
-                }
-                // Right Bottom
-                if (strCell.includes(`|${cell[0]+1},${cell[1]+1}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-
-                    if (inner === 3) {
-                        //console.log("#right bottom",inner)
-                        if (!newLiveCells[`|${cell[0]+1},${cell[1]+1}|`]) {
-                            newLiveCells[`|${cell[0]+1},${cell[1]+1}|`] = [cell[0]+1,cell[1]+1]
-                        }
-                    }
-                    
-                }
-                // Bottom
-                if (strCell.includes(`|${cell[0]},${cell[1]+1}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-
-
-                    if (inner === 3) {
-                        //console.log("#bottom",inner)
-                        if (!newLiveCells[`|${cell[0]},${cell[1]+1}|`]) {
-                            newLiveCells[`|${cell[0]},${cell[1]+1}|`] = [cell[0],cell[1]+1]
-                        }
-                    }
-                    
-                }
-                // Bottom Left
-                if (strCell.includes(`|${cell[0]-1},${cell[1]+1}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]+1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1-1},${cell[1]-1+1}|`)) {
-                        inner++
-                    }
-
-                    if (inner === 3) {
-                        //console.log("#bottom left",inner)
-                        if (!newLiveCells[`|${cell[0]-1},${cell[1]+1}|`]) {
-                            newLiveCells[`|${cell[0]-1},${cell[1]+1}|`] = [cell[0]-1,cell[1]+1]
-                        }
-                    }
-                    
-                }
-                // Left
-                if (strCell.includes(`|${cell[0]-1},${cell[1]}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]+1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-
-                    if (inner === 3) {
-                        //console.log("#left",inner)
-                        if (!newLiveCells[`|${cell[0]-1},${cell[1]}|`]) {
-                            newLiveCells[`|${cell[0]-1},${cell[1]}|`] = [cell[0]-1,cell[1]]
-                        }
-                    }
-                    
-                }
-                // Left Top
-                if (strCell.includes(`|${cell[0]-1},${cell[1]-1}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1-1},${cell[1]-1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]-1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]-1-1}|`)) {
-                        inner++
-                    }
-
-                    if (inner === 3) {
-                        //console.log("#left top",inner)
-                        if (!newLiveCells[`|${cell[0]-1},${cell[1]-1}|`]) {
-                            newLiveCells[`|${cell[0]-1},${cell[1]-1}|`] = [cell[0]-1,cell[1]-1]
-                        }
-                    }
-                    
-                }
-                // Top
-                if (strCell.includes(`|${cell[0]},${cell[1]-1}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]},${cell[1]-1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]-1-1}|`)) {
-                        inner++
-                    }
-
-                    if (inner === 3) {
-                        //console.log("#top",inner)
-                        if (!newLiveCells[`|${cell[0]},${cell[1]-1}|`]) {
-                            newLiveCells[`|${cell[0]},${cell[1]-1}|`] = [cell[0],cell[1]-1]
-                        }
-                    }
-                    
-                }
-                // Top Right
-                if (strCell.includes(`|${cell[0]+1},${cell[1]-1}|`)) {
-                    neightbors++
-                } else {
-                    inner = 0
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]+1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]-1+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1},${cell[1]-1-1}|`)) {
-                        inner++
-                    }
-                    if (strCell.includes(`|${cell[0]+1+1},${cell[1]-1-1}|`)) {
-                        inner++
-                    }
-
-                    if (inner === 3) {
-                        //console.log("#top right",inner)
-                        if (!newLiveCells[`|${cell[0]+1},${cell[1]-1}|`]) {
-                            newLiveCells[`|${cell[0]+1},${cell[1]-1}|`] = [cell[0]+1,cell[1]-1]
-                        }
-                    }
-                    
-                }
-
-                //console.log(neightbors)
-
-                if (neightbors >= 2 && neightbors < 4) {
-                    return cell
-                }
-            }
-        })
-*/
         for (let c in newLiveCells) {
             clickedCells[c] = newLiveCells[c]
         }
 
-        //console.log(clickedCells)
+        console.log( Object.keys(clickedCells).length)
                     
     }, 1500)
 }
@@ -806,6 +515,10 @@ window.onload = () => {
 let maxScroll = null;
 let pctg = 0;
 let main = document.getElementsByTagName("main")[0];
+let scrollPoint = document.getElementsByClassName("scroll-inner")[0];
+
+scrollPoint.style.height = ( main.scrollHeight  - main.offsetHeight) - 100 + "px"
+let scrolly = ( main.scrollHeight  - main.offsetHeight - 100)
 
 main.addEventListener("scroll", (e) => {    
     if (!maxScroll) {
@@ -813,6 +526,7 @@ main.addEventListener("scroll", (e) => {
     } 
 
     console.log(main)
-    pctg = (e.target.scrollTop / maxScroll);
-    document.getElementsByClassName("scroll-inner")[0].style.top = `${(main.clientHeight * pctg) - 24}px`;
+    pctg = (e.target.scrollTop - 200);
+    console.log(e.target.scrollTop)
+    scrollPoint.style.top = `${(pctg)}px`;
 })
