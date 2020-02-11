@@ -92,8 +92,8 @@ hr {
     border-radius: 5px;
     margin: 10px;
     font-weight: 600;
-    color:
-    #bbb;
+    color:#bbb;
+    cursor: pointer;
     &:hover {
         animation: 0.75s rainbow ease-in infinite running forwards;
     }
