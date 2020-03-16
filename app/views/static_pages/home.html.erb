@@ -2,11 +2,9 @@
 <nav class="nav">
     <span id="sarah-chamorro"><span class="first">Sarah</span><span class="last">Chamorro</span></span>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Archive</a></li>
+        <li><a href="#main">Home</a></li>
+        <li><a href="https://github.com/uryelah/">Projects</a></li>
+        <li><a href="https://dev.to/uryelah/">Blog</a></li>
     </ul>
 </nav>
 <main>
@@ -14,13 +12,13 @@
         <span class="scroll-inner"></span>
     </div>
     <h1><span>S</span><span>a</span><span>r</span><span>a</span><span>h</span> <span>C</span><span>h</span><span>a</span><span>m</span><span>o</span><span>r</span><span>r</span><span>o</span></h1>
-    <article>
+    <article id="main">
     <p>Howdy!🌻</p>
     <p>
-I'm Sarah, a computational designer passionate about crafting great user experiences with a strong understanding of development.
+I'm Sarah, a full-stack developer passionate about crafting creative solutions and webapps with a strong understanding of development.
     <p><small>
-I have a penchant for design tools and design systems.
-Also, I've made free website themes, a CSS framework, a icon CDN and a Chrome extension.
+I have a thing for math visualization and cellular automata.
+Also, I've experience working in agile teams in early stage startups, prototyping and developing a user-dentered product.
     </small></p>
     </p>
     </article>
@@ -28,31 +26,45 @@ Also, I've made free website themes, a CSS framework, a icon CDN and a Chrome ex
     <section>
         <h2>Featured projects</h2>
         <div class="featured">
-            <article class="featured-project">
-                <%= video_tag "IFeelWheel.mp4", class: "feature-video", autoplay: true, loop: true %>
-            <p class="featured-title">
-            Feel Wheel
-            </p>
+            <article class="featured-project eggo">
+              <a class='project-link' href='https://uryelah.github.io/Microverse-603-restaurant-page/#'>
+                Lo Eggo
+              </a>
+              <p class="featured-title">
+                A simple tabbed vanila Javascript restaurant page.
+              </p>
+            </article>
+            <article class="featured-project depths">
+              <a class='project-link' href='https://uryelah.github.io/from-the-depths/'>
+                From the depths...
+              </a>
+              <p class="featured-title">
+                A Phaser3 HTML 5 shooter game.
+              </p>
+            </article>
+            <article class="featured-project weather">
+              <a class='project-link' href=' https://uryelah.github.io/Microverse-605-weather-app/'>
+                Ghibli weather.
+              </a>
+              <p class="featured-title">
+                A vanila Javascript weather app
+              </p>
+            </article>
+            <article class="featured-project todo">
+              <a class='project-link' href='https://github.com/uryelah/Microverse-604-todo-list/blob/development'>
+                Uni List
+              </a>
+              <p class="featured-title">
+                A cute localStorage-based todo list
+              </p>
             </article>
             <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
-            </article>
-            <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
-            </article>
-            <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
-            </article>
-            <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
+              <a class='project-link' href='https://github.com/uryelah/Microverse-508-Facebook-Clone'>
+                Social media site
+              </a>
+              <p class="featured-title">
+                A Ruby on Rails social media webapp
+              </p>
             </article>
             <article class="featured-project">
             <p class="soon">
@@ -60,20 +72,17 @@ Also, I've made free website themes, a CSS framework, a icon CDN and a Chrome ex
             </p>
             </article>
         </div>
-        <button>View more...</button>
     </section>
 </main>
 <footer>
 <nav class="footer-nav nav">
     <span id="sarah-chamorro"><span class="first">Sarah</span><span class="last">Chamorro</span></span>
     <ul>
-        <li><a href="#">Send me mail</a></li>
-        <li><a href="#">@uryelah</a></li>
-        <li><a href="#"></a></li>
-        <!--codepen-->
-        <li><a href="#"></a></li>
+        <li><a href="sarahchamorro@gmail.com">Send me mail</a></li>
+        <li><a href="github.com/uryelah/">Check my github</a></li>
+        <li><a href="https://twitter.com/sarah_chamorro">Follow me on twitter</a></li>
         <!--linkedin-->
-        <li><a href="#"></a></li>
+        <li><a href="https://www.linkedin.com/in/uryelah/">Connect with me on Linkedin</a></li>
     </ul>
 </nav>
 </footer>
