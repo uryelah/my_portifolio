@@ -85,6 +85,20 @@ hr {
     }
 }
 
+.more-btn {
+    border: none;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    font-weight: 600;
+    color:#bbb;
+    cursor: pointer;
+    &:hover {
+        animation: 0.75s rainbow ease-in infinite running forwards;
+    }
+}
+
 .nav {
     position: fixed;
     top: 0;

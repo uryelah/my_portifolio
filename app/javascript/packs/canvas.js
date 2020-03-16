@@ -507,7 +507,7 @@ window.onload = () => {
             clickedCells[c] = newLiveCells[c]
         }
 
-        console.log( Object.keys(clickedCells).length)
+        //console.log( Object.keys(clickedCells).length)
                     
     }, 1500)
 }
@@ -525,8 +525,8 @@ main.addEventListener("scroll", (e) => {
         maxScroll = e.target.scrollTopMax
     } 
 
-    console.log(main)
+    //console.log(main)
     pctg = (e.target.scrollTop - 200);
-    console.log(e.target.scrollTop)
+    //console.log(e.target.scrollTop)
     scrollPoint.style.top = `${(pctg)}px`;
 })
