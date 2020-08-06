@@ -2,11 +2,13 @@
 <nav class="nav">
     <span id="sarah-chamorro"><span class="first">Sarah</span><span class="last">Chamorro</span></span>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="https://hackernoon.com/@uryelah">Blog</a></li>
-        <li><a href="#">Archive</a></li>
+        <li><a target="_blank" href="#">Home</a></li>
+        <li><a target="_blank" href="https://github.com/uryelah">Projects</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/uryelah/">About</a></li>
+        <li><a target="_blank" href="https://hackernoon.com/@uryelah">Blog</a></li>
+        <!--
+        <li><a target="_blank" href="#">Archive</a></li>
+        -->
     </ul>
 </nav>
 <main>
@@ -17,11 +19,20 @@
     <article>
     <p>Howdy!🌻</p>
     <p>
-I'm Sarah, a computational designer passionate about crafting great user experiences with a strong understanding of development.
-    <p><small>
-I have a penchant for design tools and design systems.
-Also, I've made free website themes, a CSS framework, a icon CDN and a Chrome extension.
-    </small></p>
+        I'm Sarah, and I’m a certified Ruby on Rails and React full-stack web developer with a experience in UX research and design.
+    </p>
+    <p>
+        I’m currently completing a degree in Computer Science and am exploring front-end remote opportunities with digital-product teams.
+    </p>
+    <p>
+        Currently, I’m a Technical Support Engineer and mentor at Microverse, a remote full-stack development school, and a freelance as a front-end developer, working with a small collective of developers building solutions for medium-sized businesses using ReactJS and Firebase. 
+    </p>
+    <p>
+        I especially enjoy building cohesive systems that are as functional as they are visually pleasing.
+    </p>
+    <p>Wan't to to swap contact information?</p>
+    <p>Send me a message at <a target="_blank" href="mailto:sarahchamorro@gmail.com">sarahchamorro@gmail.com</a> to chat or discuss interesting roles and opportunities!
+    </p>
     </p>
     </article>
     <hr>
@@ -29,52 +40,88 @@ Also, I've made free website themes, a CSS framework, a icon CDN and a Chrome ex
         <h2>Featured projects</h2>
         <div class="featured">
             <article class="featured-project">
-                <%= video_tag "IFeelWheel.mp4", class: "feature-video", autoplay: true, loop: true %>
-                <p class="featured-title">
-                    Feel Wheel
-                </p>
-            </article>
-            <article class="featured-project">
                 <%= image_tag "loeggo.jpg", class: "feature-video", autoplay: true, loop: true %>
                 <p class="featured-title">
-                    Lo Eggo
+                    <span class="title-top">Lo Eggo</span>
+                    <a href="https://uryelah.github.io/Microverse-603-restaurant-page/" target="_blank">
+                        Live link
+                    </a>
+                    <a href="https://uryelah.github.io/Microverse-603-restaurant-page/" target="_blank">
+                        GitHub repository
+                    </a>
                 </p>
             </article>
             <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
+                <%= image_tag "aokanji.png", class: "feature-video", autoplay: true, loop: true %>
+                <p class="featured-title">
+                    <span class="title-top">Ao Kanji</span>
+                    <a href="https://uryelah.github.io/Microverse-603-restaurant-page/" target="_blank">
+                        Live link
+                    </a>
+                    <a href="https://uryelah.github.io/Microverse-603-restaurant-page/" target="_blank">
+                        GitHub repository
+                    </a>
+                </p>
             </article>
             <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
+                <%= image_tag "circle.jpg", class: "feature-video", autoplay: true, loop: true %>
+                <p class="featured-title">
+                    <span class="title-top">Circle</span>
+                    <a href="https://hosting-test-29639.firebaseapp.com/" target="_blank">
+                        Live link
+                    </a>
+                    <a href="https://github.com/uryelah/rails-react-capstone-project" target="_blank">
+                        GitHub repository
+                    </a>
+                </p>
             </article>
             <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
+                <%= image_tag "depths.png", class: "feature-video", autoplay: true, loop: true %>
+                <p class="featured-title">
+                    <span class="title-top">From the Depths</span>
+                    <a href="https://uryelah.github.io/Microverse-603-restaurant-page/" target="_blank">
+                        Live link
+                    </a>
+                    <a href="https://github.com/uryelah/from-the-depths" target="_blank">
+                        GitHub repository
+                    </a>
+                </p>
             </article>
             <article class="featured-project">
-            <p class="soon">
-            coming soon...
-            </p>
+                <%= image_tag "flag.png", class: "feature-video", autoplay: true, loop: true %>
+                <p class="featured-title">
+                    <span class="title-top">Where in the world?</span>
+                    <a href="https://countries-db.web.app/" target="_blank">
+                        Live link
+                    </a>
+                    <a href="https://github.com/uryelah/country-flags" target="_blank">
+                        GitHub repository
+                    </a>
+                </p>
+            </article>
+            <article class="featured-project">
+                <%= image_tag "tic.png", class: "feature-video", autoplay: true, loop: true %>
+                <p class="featured-title">
+                    <span class="title-top">Lo Eggo</span>
+                    <a href="https://github.com/uryelah/tic-tac-toe-game" target="_blank">
+                        GitHub repository
+                    </a>
+                </p>
             </article>
         </div>
-        <button class='more-btn'>View more...</button>
     </section>
 </main>
 <footer>
 <nav class="footer-nav nav">
     <span id="sarah-chamorro"><span class="first">Sarah</span><span class="last">Chamorro</span></span>
     <ul>
-        <li><a href="sarahchamorro@gmail.com">Send me mail</a></li>
-        <li><a href="https://twitter.com/sarah_chamorro">@sarah_chamorro</a></li>
-        <li><a href="https://github.com/uryelah"></a></li>
+        <li><a target="_blank" href="sarahchamorro@gmail.com">Send me mail</a></li>
+        <li><a target="_blank" href="https://twitter.com/sarah_chamorro">@sarah_chamorro</a></li>
+        <li><a target="_blank" href="https://github.com/uryelah"></a></li>
         <!--codepen-->
-        <li><a href="https://codepen.io/uryelah"></a></li>
+        <li><a target="_blank" href="https://codepen.io/uryelah"></a></li>
         <!--linkedin-->
-        <li><a href="https://www.linkedin.com/in/uryelah/"></a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/uryelah/"></a></li>
     </ul>
 </nav>
 </footer>

@@ -24,8 +24,27 @@ window.onload = () => {
         "|2,0|": [2,0],
         "|2,1|": [2,1],
         "|2,2|": [2,2],
-        "|2,2|": [1,2],
+        "|1,2|": [1,2],
+        "|0,5|": [0,5],
+        "|6,0|": [6,0],
+        "|25,25|": [25,25],
+        "|26,26|": [26,26],
+        "|26,27|": [26,27],
+        "|20,1|": [20,1],
+        "|2,42|": [2,42],
+        "|10,20|": [10,20],
     };
+
+    let defaultCells;
+    for (let i = 0; i < width; i+=5) {
+        defaultCells = [parseInt(Math.random() * width/5), parseInt(Math.random() * height/5)]
+        clickedCells[`|${defaultCells[0]},${defaultCells[1]}|`] = [...defaultCells];
+        clickedCells[`|${defaultCells[0]+1},${defaultCells[1] + 1}|`] = [defaultCells[0] + 1, defaultCells[1] + 1];
+        clickedCells[`|${defaultCells[0]+2},${defaultCells[1] + 1}|`] = [defaultCells[0] + 2, defaultCells[1] + 1];
+        clickedCells[`|${defaultCells[0]+2},${defaultCells[1]}|`] = [defaultCells[0] + 2, defaultCells[1]];    
+
+        clickedCells[`|${defaultCells[0]+2},${defaultCells[1]-1}|`] = [defaultCells[0] + 2, defaultCells[1] - 1];
+    }
 
     document.body.addEventListener("mousemove", e => {
         CHANGE = [e.pageX, e.pageY];

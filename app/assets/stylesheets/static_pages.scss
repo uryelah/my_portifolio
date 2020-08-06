@@ -34,9 +34,9 @@ body * {
 main {
     position: fixed;
     top: 75px;
-    left: calc(15%);
+    left: calc(17.5%);
     z-index: 10;
-    width: 70vw;
+    width: 80vw;
     height: calc(100vh - 130px);
     background-color: rgba(241, 244, 247, 0.75);
     background-color: rgba(255, 255, 255, 0.85);
@@ -127,23 +127,23 @@ hr {
     left: 0;
     top: 0;
     opacity: 0.75;
-    font-size: 0.85rem;
+    font-size: 1.15rem;
     cursor: pointer;
 
     .first {
         transform-origin: center center;
         transform: rotate(-15deg);
         position: absolute;
-        top: 5px;
+        top: 7.5px;
         left: 10px;
         z-index: 1;
         &:after {
             content: "";
             position: absolute;
             top: 2px;
-            left: 5px;
-            width: 50px;
-            height: 50px;
+            left: 7.5px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             background-color: white;
             z-index: -1;
@@ -154,7 +154,7 @@ hr {
         transform-origin: center center;
         transform: rotate(-15deg);
         position: absolute;
-        top: 1rem;
+        top: 1.5rem;
         left: 25px;
         z-index: 1;
     }
@@ -164,9 +164,10 @@ hr {
     display: flex;
     background-color: rgba(241, 244, 247, 0.75);
     padding: 0;
+    margin-right: 2.5rem;
 
     li {
-        font-size: 0.75rem;
+        font-size: 0.95rem;
         margin: 0 10px;
         list-style: none;
 
@@ -271,14 +272,21 @@ main h2 {
 .featured {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px;
+    grid-auto-rows: minmax(400px, 25vw);
     row-gap: 15px;
-    column-gap: 10px;
+    column-gap: 0px;
+    padding-bottom: 25px;
+}
+
+@media only screen and (max-width: 750px) {
+    .featured {
+        grid-template-columns: 1fr;
+    }
 }
 
 .featured-project {
     width: calc(100% - 50px);
-    height: calc(200px - 25px);
+    height: 100%;
     background-color: white;
     margin: 0;
     box-sizing: border-box;
@@ -292,6 +300,10 @@ main h2 {
     cursor: pointer;
     background: linear-gradient(rgba(204, 204, 204, 0.802)-20%, rgb(223, 223, 223) 80%);
     overflow: hidden;
+}
+
+.project-description {
+    text-align: left;
 }
 
 .feature-video {
@@ -308,14 +320,29 @@ main h2 {
     transition: color 0.3s ease-in;
 }
 .featured-title {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    justify-content: space-between;
     text-transform: unset;
     letter-spacing: 1rem;
     transition: letter-spacing 0.4s ease-in;
     transition-delay: letter-spacing 0.3s;
 }
 
+.title-top {
+    margin-bottom: 10vw;
+    font-size: 1.75rem;
+}
+
+.featured-title a {
+    margin-bottom: 7.5px;
+}
+
 .featured-project:hover {
-    height: 200px;
+    height: 25vw;
+    min-height: 400px;
     width: 100%;
     border: 30px solid pink;
     border-image-source: image-url("Iridescent.jpg");
