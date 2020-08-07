@@ -333,32 +333,32 @@ main h2 {
     display: none;
 }
 
-.featured-project-1:hover ~ .details-1 {
+.featured-project-1:hover ~ .details-1, .details-1:hover {
     height: min-content;
     opacity: 1;
 }
 
-.featured-project-2:hover ~ .details-2 {
+.featured-project-2:hover ~ .details-2, .details-2:hover {
     height: min-content;
     opacity: 1;
 }
 
-.featured-project-3:hover ~ .details-3 {
+.featured-project-3:hover ~ .details-3, .details-3:hover {
     height: min-content;
     opacity: 1;
 }
 
-.featured-project-4:hover ~ .details-4 {
+.featured-project-4:hover ~ .details-4, .details-4:hover {
     height: min-content;
     opacity: 1;
 }
 
-.featured-project-5:hover ~ .details-5 {
+.featured-project-5:hover ~ .details-5, .details-5:hover {
     height: min-content;
     opacity: 1;
 }
 
-.featured-project-6:hover ~ .details-6 {
+.featured-project-6:hover ~ .details-6, .details-6:hover {
     height: min-content;
     opacity: 1;
 }
