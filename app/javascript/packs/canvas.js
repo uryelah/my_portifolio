@@ -46,6 +46,14 @@ window.onload = () => {
         clickedCells[`|${defaultCells[0]+2},${defaultCells[1]-1}|`] = [defaultCells[0] + 2, defaultCells[1] - 1];
     }
 
+    ctx.strokeStyle = "#F8F4E8";
+
+    grid.forEach((n, i) => {
+        row.forEach((r, j) => {
+            ctx.strokeRect(cell * i, cell * j, cell, cell)
+        })
+    });
+
     document.body.addEventListener("mousemove", e => {
         CHANGE = [e.pageX, e.pageY];
     })
